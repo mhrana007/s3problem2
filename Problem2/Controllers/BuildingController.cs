@@ -1,11 +1,12 @@
 ﻿using BusinessLogicLayer.Interface;
-using DataAccessLayer.Model;
-using Microsoft.AspNetCore.Http;
+using GlobalEntity;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Problem2.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/building/")]
+    [EnableCors("s3")]
     [ApiController]
     public class BuildingController : ControllerBase
     {
@@ -14,9 +15,10 @@ namespace Problem2.Controllers
         {
             _service = service;
         }
-        public async Task<List<Building>> GetBuildings()
+        [HttpGet("getall")]
+        public async Task<List<BuildingModel>> GetBuildings()
         {
-            List<Building> list = await _service.GetBuildings();
+            List<BuildingModel> list = await _service.GetBuildings();
             return list;
         }
     }

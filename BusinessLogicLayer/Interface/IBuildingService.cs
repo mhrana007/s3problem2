@@ -1,14 +1,9 @@
-﻿using DataAccessLayer.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GlobalEntity;
 
 namespace BusinessLogicLayer.Interface
 {
     public interface IBuildingService
     {
-        Task<List<Building>> GetBuildings();
+        Task<List<BuildingModel>> GetBuildings();
     }
 }

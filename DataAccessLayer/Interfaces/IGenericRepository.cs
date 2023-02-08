@@ -1,5 +1,4 @@
-﻿
-namespace DataAccessLayer.Interfaces
+﻿namespace DataAccessLayer.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {

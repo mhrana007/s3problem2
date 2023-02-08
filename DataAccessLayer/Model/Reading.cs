@@ -6,6 +6,8 @@ namespace DataAccessLayer.Model
     [Table("Readings")]
     public class Reading
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Int64 Id { get; set; }
         [Required]
         [ForeignKey("Buildings")]
         public Int16 BuildingId { get; set; }
@@ -15,10 +17,10 @@ namespace DataAccessLayer.Model
         [Required]
         [ForeignKey("DataFields")]
         public sbyte DataFieldId { get; set; }
-        [Column(TypeName = "decimal")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Value { get; set; }
 
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime Timestamp { get; set; }
     }
 }
